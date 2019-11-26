@@ -1,0 +1,88 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "networkSecurityGroupName": {
+      "type": "string",
+      "metadata": {
+        "description": "This is the name of the network security group"
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "Location where the network security group resource will be created."
+      }
+    }
+  },
+  "resources": [
+    {
+      "apiVersion": "2019-02-01",
+      "type": "Microsoft.Network/networkSecurityGroups",
+      "name": "[parameters('networkSecurityGroupName')]",
+      "location": "[parameters('location')]",
+      "tags": {
+        "Dienst": "OZP",
+        "type": "NSG"
+      },
+      "properties": {
+        "securityRules": [
+          {
+            "name": "DevOpsAdminports",
+            "properties": {
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "sourceAddressPrefix": "194.171.184.10",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 310,
+              "direction": "Inbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [
+                "10000",
+                "10010",
+                "10020",
+                "10030",
+                "10040",
+                "10050",
+                "10060",
+                "10070",
+                "10080",
+                "10090",
+                "10100",
+                "10110",
+                "10120",
+                "10130",
+                "10140",
+                "10150",
+                "10160",
+                "10170",
+                "10180"
+              ],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          },
+          {
+            "name": "SSH",
+            "properties": {
+              "description": "SSH",
+              "protocol": "Tcp",
+              "sourcePortRange": "*",
+              "destinationPortRange": "22",
+              "sourceAddressPrefix": "*",
+              "destinationAddressPrefix": "*",
+              "access": "Allow",
+              "priority": 300,
+              "direction": "Inbound",
+              "sourcePortRanges": [],
+              "destinationPortRanges": [],
+              "sourceAddressPrefixes": [],
+              "destinationAddressPrefixes": []
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

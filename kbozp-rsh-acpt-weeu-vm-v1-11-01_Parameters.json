@@ -1,0 +1,91 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "westeurope"
+        },
+      "networkInterfaceName": {
+        "value": "kbozp-rsh-acpt-weeu-vm-v1-11-01-nic"
+      },
+        "subnetName": {
+            "value": "kb-ozp-weeu-workload"
+        },
+        "virtualNetworkId": {
+            "value": "/subscriptions/e193e139-9d51-4db1-bb74-3f0409136a23/resourceGroups/RG-OZP/providers/Microsoft.Network/virtualNetworks/kb-ozp-weeu-vnet"
+        },
+      "virtualMachineName": {
+        "value": "kbozp-rsh-acpt-weeu-vm-v1-11-01"
+      },
+        "virtualMachineRG": {
+            "value": "RG-OZP"
+        },
+        "osDiskType": {
+            "value": "Premium_LRS"
+        },
+        "dataDisks": {
+            "value": [
+              {
+                "lun": 0,
+                "createOption": "attach",
+                "caching": "None",
+                "writeAcceleratorEnabled": false,
+                "id": null,
+                "name": "kbozp-rsh-acpt-weeu-vm-v1-11-01_DataDisk_0",
+                "storageAccountType": null,
+                "diskSizeGB": null
+              }
+            ]
+        },
+        "dataDiskResources": {
+            "value": [
+              {
+                "name": "kbozp-rsh-acpt-weeu-vm-v1-11-01_DataDisk_0",
+                "sku": "Premium_LRS",
+                "properties": {
+                  "diskSizeGB": 2048,
+                  "creationData": {
+                    "createOption": "empty"
+                  }
+                }
+              }
+            ]
+        },
+        "virtualMachineSize": {
+            "value": "Standard_D32s_v3"
+        },
+        "adminUsername": {
+            "value": "cloudadmin"
+        },
+      "adminPublicKey": {
+        "value": "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAyz0MZCdhjWKGBHOu0FZgVxbVna6tWhxTSwHrDxvYmXYQfRhZtv/nmsc3JFn3RNj3M+fWHP+i3kWrmG+W2hcStaQkU37PQVAfFL215MnK1W22ZqF77wbrAaDNJW+kcMp7YWLsDv6NQQPi1LHA1Kp8/oi4jhSdr3dy/40VLyzSsjHHWMGhheHol4/rHWWHT2SlEJwZ8n+0IzTbyC9GqOghMVpBpFNCzehWN0QtxuiCuzQ16sT1aHOTJGEhRAABYMPDwDA9E+AA4HJdru3XNElKHvZ4bd70PON6YZf9S0EXRTg9/wpEQCaibPZggBiwS7rN+bxFfnZnVN3kIKaa6m2AuQ== rsa-key-20191120"
+      },
+        "diagnosticsStorageAccountName": {
+            "value": "rgozpdiag"
+        },
+        "diagnosticsStorageAccountId": {
+            "value": "Microsoft.Storage/storageAccounts/rgozpdiag"
+        },
+        "diagnosticsStorageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "diagnosticsStorageAccountKind": {
+            "value": "Storage"
+        },
+        "availabilitySetName": {
+            "value": "kb-ozp-weeu-workload-avset"
+        },
+        "loadBalancerId": {
+            "value": "/subscriptions/e193e139-9d51-4db1-bb74-3f0409136a23/resourceGroups/RG-OZP/providers/Microsoft.Network/loadBalancers/kb-ozp-weeu-workload-lb"
+        },
+        "backendPoolId": {
+            "value": "/subscriptions/e193e139-9d51-4db1-bb74-3f0409136a23/resourceGroups/RG-OZP/providers/Microsoft.Network/loadBalancers/kb-ozp-weeu-workload-lb/backendAddressPools/kb-ozp-weeu-workload-lb-backendpool"
+        },
+        "backendPoolName": {
+            "value": "kb-ozp-weeu-workload-lb-backendpool"
+        },
+        "loadBalancerRG": {
+            "value": "RG-OZP"
+        }
+    }
+}
